@@ -29,7 +29,7 @@ const addSong = async (song) => {
 // Función para obtener las canciones
 const getSongs = async () => {
     try {
-        const response = await pool.query('SELECT * FROM canciones order by id desc');
+        const response = await pool.query('SELECT * FROM canciones order by id asc');
         return response.rows;
     } catch (error) {
         console.log(error);

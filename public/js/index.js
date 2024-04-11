@@ -47,29 +47,6 @@ function getData() {
 
 
 
-// Función para eliminar una canción
-function deleteSong(id) {
-    fetch('/deleteSong', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ id: id })
-    })
-    .then(response => {
-        if (response.ok) {
-            alert('Canción eliminada exitosamente');
-            getData();
-        } else {
-            throw new Error('Error al eliminar la canción');
-        }
-    })
-    .catch(error => console.error(error));
-}
-
-
-
-
 
 // Función para editar una canción
 function editSong(row) {
@@ -82,6 +59,9 @@ function editSong(row) {
     row.querySelector('.btn-edit').classList.add('btn-save');
     row.querySelector('.btn-edit').classList.remove('btn-edit');
 }
+
+
+
 
 // Evento para los botones de editar
 document.querySelectorAll('.btn-edit').forEach(button => {
@@ -102,6 +82,8 @@ document.querySelectorAll('.btn-edit').forEach(button => {
 });
 
 
+
+
 // Función para guardar los cambios en una canción
 function saveSong(row) {
     const id = row.querySelector('td:first-child').textContent;
@@ -110,7 +92,7 @@ function saveSong(row) {
     const tono = row.querySelector('.tono').value;
 
     fetch('/editSong', {
-        method: 'POST',
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -118,7 +100,7 @@ function saveSong(row) {
     })
     .then(response => {
         if (response.ok) {
-            alert('Cambios guardados exitosamente');
+            alert('Canción editada exitosamente');
             row.classList.remove('editing');
             getData();
         } else {
@@ -128,10 +110,34 @@ function saveSong(row) {
     .catch(error => console.error(error));
 }
 
- // Obtener el mensaje de la URL y mostrarlo en un alert
- const urlParams = new URLSearchParams(window.location.search);
- const message = urlParams.get('message');
- if (message) {
-     alert(message);
- }
+
+
+
+// Función para eliminar una canción
+function deleteSong(id) {
+    fetch(`/deleteSong/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            alert('Canción eliminada exitosamente');
+            getData();
+        } else {
+            throw new Error('Error al eliminar la canción');
+        }
+    })
+    .catch(error => console.error(error));
+}
+
+
+
+// Obtener el mensaje de la URL y mostrarlo en un alert
+const urlParams = new URLSearchParams(window.location.search);
+const message = urlParams.get('message');
+if (message) {
+    alert(message);
+}
 
