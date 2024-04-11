@@ -1,5 +1,5 @@
 import express from "express";
-import { getDate } from '../queries/queries.js';
+import { getDate, addSong } from '../queries/queries.js';
 import path from "path";
 
 const __dirname = path.resolve();
@@ -14,6 +14,13 @@ router.get('/', (req, res) => {
 router.get('/date', async(req, res) => {
     const fecha = await getDate();
     res.send(fecha);
+});
+
+// Ruta para agregar una canción
+router.post('/addSong', async(req, res) => {
+    const song = Object.values(req.body);
+    await addSong(song);
+    res.sendFile(__dirname + '/views/index.html');
 });
 
 
