@@ -25,6 +25,25 @@ En este desafío se validan los conocimientos sobre Levantar un servidor con con
 
 ## Instalación y Uso
 
-- Descarga el repositorio.
-- Instala las dependencias usando `npm install cors pg express nodemon`.
-- Ejecuta el servidor con npm run dev. 
+1. Descarga el repositorio.
+2. Instala las dependencias usando `npm install cors pg express nodemon`.
+3. Crea una base de datos y añade la siguiente tabla:
+
+```
+CREATE TABLE canciones (
+	id SERIAL primary key, 
+	titulo VARCHAR(50), 
+	artista VARCHAR(50), 
+	tono VARCHAR(10)
+); 
+```
+
+3. Crea un archivo .env en la raíz del proyecto y agrega las siguientes variables de entorno (reemplaza los valores correspondientes):
+
+```
+DB_USER = tu_usuario_de_base_de_datos
+DB_PASS = contraseña_de_base_de_datos
+DB_HOST = host_de_base_de_datos
+DB_DATABASE = nombre_de_la_base_de_datos
+```
+4. Ejecuta el servidor con npm run dev. 
