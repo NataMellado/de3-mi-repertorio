@@ -1,5 +1,5 @@
 import express from "express";
-import { getDate, addSong } from '../queries/queries.js';
+import { getDate, addSong, getSongs } from '../queries/queries.js';
 import path from "path";
 
 const __dirname = path.resolve();
@@ -21,6 +21,12 @@ router.post('/addSong', async(req, res) => {
     const song = Object.values(req.body);
     await addSong(song);
     res.sendFile(__dirname + '/views/index.html');
+});
+
+// Ruta para obtener las canciones
+router.get('/getSongs', async(req, res) => {
+    const songs = await getSongs();
+    res.json(songs);
 });
 
 

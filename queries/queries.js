@@ -23,4 +23,13 @@ const addSong = async (song) => {
     }
 };
 
-export { getDate, addSong};
+const getSongs = async () => {
+    try {
+        const response = await pool.query('SELECT * FROM canciones');
+        return response.rows;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export { getDate, addSong, getSongs};
