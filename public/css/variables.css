@@ -1,0 +1,11 @@
+:root {
+    /* fonts */
+    --ff-pr: 'Red Hat Display', sans-serif;
+
+    /* colors */
+    --clr-pr-pale-blue: hsl(225, 100%, 94%);
+    --clr-pr-bright-blue: hsl(245, 75%, 52%);
+    --clr-snd-very-pale-blue: hsl(225, 100%, 98%);
+    --clr-snd-desaturated-blue: hsl(224, 23%, 55%);
+    --clr-snd-dark-blue: hsl(223, 47%, 23%);
+}

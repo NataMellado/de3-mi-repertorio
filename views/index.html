@@ -4,10 +4,62 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Repertorio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <h1>Titulo</h1>    
+
+    <header>
+        <picture>
+          <source media="(min-width: 426px)" srcset="/img/pattern-background-desktop.svg">
+          <img class="background" src="/img/pattern-background-mobile.svg" alt="">
+        </picture>
+      </header>
+
+    <main class="main-container">
+
+        <section class="form-container">
+
+            <img src="/img/illustration-hero.svg" alt="hero-image">
+
+            <form action="/addSong" method="POST" id="songForm">
+                <h1>Mi repertorio</h1>
+                <input type="text" name="artist" id="artist" required placeholder="Artista">
+                <input type="text" name="cancion" id="cancion" required placeholder="Canción">
+                <input type="text" name="tone" id="tone" required placeholder="Tono">
+                <button type="submit">Agregar</button>
+            </form>
+
+
+
+        </section>
+
+        <section class="table-container">
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Series</th>
+                        <th>Repeticiones</th>
+                        <th>Descanso</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tablaRutinas"></tbody>
+
+            </table>    
+        </section>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://kit.fontawesome.com/d85944cffc.js" crossorigin="anonymous"></script>
+    <script src="/js/index.js"></script>  
 </body>
 
 </html>
