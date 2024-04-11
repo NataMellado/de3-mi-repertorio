@@ -7,5 +7,14 @@
     --clr-pr-bright-blue: hsl(245, 75%, 52%);
     --clr-snd-very-pale-blue: hsl(225, 100%, 98%);
     --clr-snd-desaturated-blue: hsl(224, 23%, 55%);
-    --clr-snd-dark-blue: hsl(223, 47%, 23%);
+    --clr-snd-dark-blue: hsl(245, 89%, 36%);
+
+    /* btn-colors */
+    --clr-btn-edit: hsl(245, 75%, 52%);
+    --clr-btn-delete: hsl(5, 100%, 50%);
+    --clr-btn-save: #11d49d;
+    --clr-btn-edit-hover: hsl(245, 89%, 36%);
+    --clr-btn-delete-hover: hsl(5, 100%, 35%);
+    --clr-btn-save-hover: #07ad81;
+
 }

@@ -1,5 +1,5 @@
 import express from "express";
-import { getDate, addSong, getSongs } from '../queries/queries.js';
+import { getDate, addSong, getSongs, deleteSong, editSong } from '../queries/queries.js';
 import path from "path";
 
 const __dirname = path.resolve();
@@ -20,13 +20,27 @@ router.get('/date', async(req, res) => {
 router.post('/addSong', async(req, res) => {
     const song = Object.values(req.body);
     await addSong(song);
-    res.sendFile(__dirname + '/views/index.html');
+    res.redirect('/?message=Canción%20agregada%20exitosamente');
 });
 
 // Ruta para obtener las canciones
 router.get('/getSongs', async(req, res) => {
     const songs = await getSongs();
     res.json(songs);
+});
+
+// Ruta para eliminar una canción
+router.post('/deleteSong', async(req, res) => {
+    const id = req.body.id;
+    await deleteSong(id);
+    res.redirect('/');
+});
+
+// Ruta para editar una canción
+router.post('/editSong', async(req, res) => {
+    const song = Object.values(req.body);
+    await editSong(song);
+    res.redirect('/');
 });
 
 
